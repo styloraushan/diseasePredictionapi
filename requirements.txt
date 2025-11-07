@@ -1,0 +1,8 @@
+flask==3.0.3
+pandas==2.2.2
+nltk==3.9.1
+scikit-learn==1.5.2
+waitress==3.0.1
+requests==2.32.3
+beautifulsoup4==4.12.3
+googlesearch-python==1.2.5

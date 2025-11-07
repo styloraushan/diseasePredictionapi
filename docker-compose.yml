@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  medical_api:
+    build: .
+    container_name: medical_api_container
+    ports:
+      - "6000:6000"
+    volumes:
+      - ./app/Dataset:/app/Dataset     # live dataset updates
+      - ./app/model:/app/model         # model persistence 
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: always
