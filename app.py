@@ -14,11 +14,6 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*"}})  # ✅ allow all origins
-
-warnings.simplefilter("ignore")
-
-app = Flask(__name__)
 
 # ------------------- NLTK Setup -------------------
 # Ensure all NLTK data is available even in Docker
@@ -64,7 +59,7 @@ def synonyms(term):
 def train_and_save_model():
     """Retrain model from dataset and save updated .pkl files."""
     if not os.path.exists(DATA_PATH):
-        raise FileNotFoundError(f"❌ Dataset not found at {DATA_PATH}")
+        raise FileNotFoundError(f"Dataset not found at {DATA_PATH}")
 
     df = pd.read_csv(DATA_PATH, encoding='latin1')
 
@@ -85,7 +80,7 @@ def train_and_save_model():
 
 # ------------------- Initial Load -------------------
 if os.path.exists(MODEL_PATH) and os.path.exists(ENCODER_PATH):
-    print("✅ Loading existing model and encoder...")
+    print("Loading existing model and encoder...")
     lr_model = joblib.load(MODEL_PATH)
     encoder = joblib.load(ENCODER_PATH)
     df = pd.read_csv(DATA_PATH, encoding='latin1')
