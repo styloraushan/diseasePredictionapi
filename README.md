@@ -4,7 +4,7 @@ This API gives disease suggestion based on given set of symptoms using a trained
 
 ### Build & Run the Docker Container
 
-1. **Create Volumne:**
+1. **Create Volume:**
    ```sh
    docker volume create symptom_data
    ```
