@@ -10,13 +10,6 @@ from nltk.corpus import wordnet, stopwords
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import RegexpTokenizer
 
-from flask import Flask, request, jsonify
-from flask_cors import CORS
-
-app = Flask(__name__)
-
-# ------------------- NLTK Setup -------------------
-# Ensure all NLTK data is available even in Docker
 nltk.data.path.append("/usr/local/nltk_data")
 
 try:
@@ -34,7 +27,7 @@ splitter = RegexpTokenizer(r'\w+')
 synonym_cache = {}
 
 # ------------------- Path Configuration -------------------
-# Automatically find paths whether local or Docker
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "Dataset")
 os.makedirs(DATA_DIR, exist_ok=True)
@@ -148,8 +141,8 @@ def predict():
 
     return jsonify({"predictions": topk_dict})
 
-
 # ------------------- Receive + Retrain Endpoint -------------------
+
 @app.route('/receive', methods=['POST'])
 def receive_data():
     data = request.json
@@ -219,6 +212,7 @@ def receive_data():
     })
 
 # ------------------- Health Check -------------------
+
 @app.route('/', methods=['GET'])
 def home():
     return jsonify({"status": "running", "message": "Flask API is active "})
