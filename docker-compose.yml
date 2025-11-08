@@ -7,8 +7,8 @@ services:
     ports:
       - "6000:6000"
     volumes:
-      - ./app/Dataset:/app/Dataset     # live dataset updates
-      - ./app/model:/app/model         # model persistence 
+      - ./app/Dataset:/app/Dataset    
+      - ./app/model:/app/model    
     environment:
       - PYTHONUNBUFFERED=1
     restart: always
