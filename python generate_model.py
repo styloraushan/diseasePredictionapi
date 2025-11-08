@@ -1,4 +1,3 @@
-# generate_model.py
 import pandas as pd
 import joblib
 from sklearn.linear_model import LogisticRegression
@@ -19,4 +18,4 @@ model.fit(X, y_encoded)
 joblib.dump(model, 'model.pkl')
 joblib.dump(encoder, 'label_encoder.pkl')
 
-print("✅ model.pkl and label_encoder.pkl generated successfully.")
+print("model.pkl and label_encoder.pkl generated successfully.")
