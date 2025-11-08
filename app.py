@@ -9,6 +9,7 @@ import nltk
 from nltk.corpus import wordnet, stopwords
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import RegexpTokenizer
+app = Flask(__name__)
 
 nltk.data.path.append("/usr/local/nltk_data")
 
